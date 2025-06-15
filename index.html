@@ -111,6 +111,17 @@
       background-color: #0090cc;
     }
 
+    .logo-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-container img {
+      max-width: 220px;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
     @media (max-width: 600px) {
       table, thead, tbody, th, td, tr {
         display: block;
@@ -130,6 +141,11 @@
   <div id="header"></div>
 
   <main>
+
+    <!-- شعار البنك -->
+    <div class="logo-container">
+      <img src="logo.png" alt="شعار بنك فهد">
+    </div>
 
     <!-- المحفظة الاستثمارية -->
     <section class="section">
@@ -189,9 +205,7 @@
   <!-- تذييل الصفحة -->
   <div id="footer"></div>
 
-  <!-- سكربت مدمج -->
   <script>
-    // تحميل الهيدر والفوتر
     fetch("header.html")
       .then(res => res.text())
       .then(data => {
@@ -204,9 +218,7 @@
         document.getElementById("footer").innerHTML = data;
       });
 
-    // إدارة العملاء
     let customers = JSON.parse(localStorage.getItem("customers")) || [];
-
     const form = document.getElementById("customer-form");
     const tableBody = document.querySelector("#customers-table tbody");
 
