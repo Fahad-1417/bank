@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>نظام إدارة العملاء</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -84,40 +87,59 @@
     .delete-btn:hover {
       background-color: #b71c1c;
     }
+
+    .feature-box {
+      margin-bottom: 30px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fdfdfd;
+    }
+
+    .feature-box h3 i {
+      color: #004080;
+      margin-left: 8px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- سيتم تحميل الهيدر -->
   <div id="header"></div>
 
   <main>
-    <h3>إضافة عميل جديد</h3>
+    <!-- قسم المحفظة الاستثمارية -->
+    <section class="feature-box">
+      <h3><i class="fas fa-wallet"></i> محفظة الاستثمار</h3>
+      <p>توفر محفظة الاستثمار الخاصة ببنك فهد أدوات مرنة وآمنة تُمكن العملاء من إدارة أصولهم ومتابعة العوائد بذكاء.</p>
+    </section>
+
+    <!-- إضافة عميل -->
+    <h3><i class="fas fa-user-plus"></i> إضافة عميل جديد</h3>
     <form id="customer-form">
       <input type="text" id="name" placeholder="الاسم الكامل" required>
       <input type="text" id="account" placeholder="رقم الحساب" required>
-      <button type="submit">➕ إضافة العميل</button>
+      <button type="submit"><i class="fas fa-user-plus"></i> إضافة العميل</button>
     </form>
 
-    <h3>قائمة العملاء</h3>
+    <!-- جدول العملاء -->
+    <h3><i class="fas fa-users"></i> قائمة العملاء</h3>
     <table id="customers-table">
       <thead>
         <tr>
-          <th>الاسم</th>
-          <th>رقم الحساب</th>
-          <th>إجراءات</th>
+          <th><i class="fas fa-user"></i> الاسم</th>
+          <th><i class="fas fa-credit-card"></i> رقم الحساب</th>
+          <th><i class="fas fa-cogs"></i> إجراءات</th>
         </tr>
       </thead>
       <tbody></tbody>
     </table>
   </main>
 
-  <!-- سيتم تحميل الفوتر -->
   <div id="footer"></div>
 
-  <!-- JavaScript مدمج -->
+  <!-- سكربت مدمج -->
   <script>
-    // تحميل header و footer من ملفات HTML
+    // تحميل الهيدر والفوتر
     fetch("header.html")
       .then(res => res.text())
       .then(data => {
@@ -132,7 +154,6 @@
 
     // منطق إدارة العملاء
     let customers = JSON.parse(localStorage.getItem("customers")) || [];
-
     const form = document.getElementById("customer-form");
     const tableBody = document.querySelector("#customers-table tbody");
 
@@ -143,7 +164,7 @@
           <tr>
             <td>${customer.name}</td>
             <td>${customer.account}</td>
-            <td><button class="delete-btn" onclick="deleteCustomer(${index})">حذف</button></td>
+            <td><button class="delete-btn" onclick="deleteCustomer(${index})"><i class="fas fa-trash-alt"></i> حذف</button></td>
           </tr>`;
         tableBody.innerHTML += row;
       });
@@ -161,7 +182,6 @@
       e.preventDefault();
       const name = document.getElementById("name").value.trim();
       const account = document.getElementById("account").value.trim();
-
       if (name && account) {
         customers.push({ name, account });
         localStorage.setItem("customers", JSON.stringify(customers));
@@ -170,7 +190,6 @@
       }
     };
 
-    // تشغيل عند تحميل الصفحة
     renderCustomers();
   </script>
 
