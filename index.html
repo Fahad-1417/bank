@@ -94,6 +94,23 @@
       background-color: #b71c1c;
     }
 
+    .bank-feature {
+      flex: 1 1 180px;
+      padding: 12px;
+      background-color: #00b0ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+
+    .bank-feature:hover {
+      background-color: #0090cc;
+    }
+
     @media (max-width: 600px) {
       table, thead, tbody, th, td, tr {
         display: block;
@@ -117,6 +134,18 @@
     <section class="section">
       <h3><i class="fas fa-wallet"></i> المحفظة الاستثمارية</h3>
       <p>محفظة رقمية آمنة تمكّنك من إدارة أموالك واستثماراتك بذكاء مع بنك فهد الرقمي.</p>
+    </section>
+
+    <!-- الخدمات البنكية -->
+    <section class="section">
+      <h3><i class="fas fa-th-large"></i> الخدمات البنكية</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+        <button class="bank-feature"><i class="fas fa-user-circle"></i> الحسابات</button>
+        <button class="bank-feature"><i class="fas fa-credit-card"></i> البطاقات</button>
+        <button class="bank-feature"><i class="fas fa-hand-holding-usd"></i> منتجات التمويل</button>
+        <button class="bank-feature"><i class="fas fa-exchange-alt"></i> التحويل</button>
+        <button class="bank-feature"><i class="fas fa-money-bill-wave"></i> المدفوعات</button>
+      </div>
     </section>
 
     <!-- نموذج إضافة عميل -->
