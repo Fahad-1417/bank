@@ -111,26 +111,30 @@
       background-color: #0090cc;
     }
 
-    .logo-container {
-      text-align: center;
+    .media-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
       margin-bottom: 30px;
     }
 
-    .logo-container img {
-      max-width: 220px;
-      border-radius: 15px;
+    .media-container img {
+      max-width: 240px;
+      border-radius: 12px;
       box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
 
-    @media (max-width: 600px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
+    .media-container video {
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
 
-      td {
-        border: none;
-        padding: 10px;
-        text-align: right;
+    @media (max-width: 700px) {
+      .media-container {
+        flex-direction: column;
       }
     }
   </style>
@@ -142,9 +146,10 @@
 
   <main>
 
-    <!-- شعار البنك -->
-    <div class="logo-container">
-      <img src="logo.png" alt="شعار بنك فهد">
+    <!-- شعار + فيديو -->
+    <div class="media-container">
+      <img src="33.png" alt="شعار بنك فهد">
+      <video src="14.mp4" controls autoplay muted loop></video>
     </div>
 
     <!-- المحفظة الاستثمارية -->
@@ -153,7 +158,7 @@
       <p>محفظة رقمية آمنة تمكّنك من إدارة أموالك واستثماراتك بذكاء مع بنك فهد الرقمي.</p>
     </section>
 
-    <!-- الخدمات البنكية الأساسية -->
+    <!-- الخدمات البنكية -->
     <section class="section">
       <h3><i class="fas fa-th-large"></i> الخدمات البنكية</h3>
       <div style="display: flex; flex-wrap: wrap; gap: 15px;">
@@ -165,7 +170,7 @@
       </div>
     </section>
 
-    <!-- الخدمات البنكية الإضافية -->
+    <!-- خدمات إضافية -->
     <section class="section">
       <h3><i class="fas fa-plus-circle"></i> خدمات إضافية</h3>
       <div style="display: flex; flex-wrap: wrap; gap: 15px;">
@@ -176,7 +181,7 @@
       </div>
     </section>
 
-    <!-- نموذج إضافة عميل -->
+    <!-- إضافة عميل -->
     <section class="section">
       <h3><i class="fas fa-user-plus"></i> إضافة عميل جديد</h3>
       <form id="customer-form">
@@ -202,7 +207,7 @@
     </section>
   </main>
 
-  <!-- تذييل الصفحة -->
+  <!-- تذييل -->
   <div id="footer"></div>
 
   <script>
